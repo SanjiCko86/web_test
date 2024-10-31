@@ -1,13 +1,5 @@
 <template>
     <div class="footer">
-        <div class="news-letter">
-            <h3>Receive event notifications</h3>
-            <form onsubmit="event.preventDefault();">
-                <input type="email" name="useremailreceiveinfo" placeholder="enter your email"
-                    id="useremailreceiveinfo">
-                <input type="submit" value="subscribe">
-            </form>
-        </div>
 
         <div class="box-container">
 
@@ -88,61 +80,16 @@ export default {
     background: #f7f7f7;
     padding: 2rem 9%;
 }
-
-.footer .news-letter {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.footer .news-letter h3 {
-    font-size: 2.5rem;
-    color: #130f40;
-    padding-bottom: 1rem;
-}
-
-.footer .news-letter form {
-    max-width: 70rem;
-    margin: 1rem auto;
-    max-width: 70rem;
-
-    display: flex;
-    border-radius: .5rem;
-    overflow: hidden;
-}
-
-.footer .news-letter form input[type="email"] {
-    height: 100%;
-    width: 100%;
-    padding: 1rem 1.2rem;
-    font-size: 1.6rem;
-    color: #130f40;
-    text-transform: none;
-}
-
-.footer .news-letter form input[type="submit"] {
-    padding: 0 2rem;
-    font-size: 1.6rem;
-    color: #fff;
-    background: #27ae60;
-    cursor: pointer;
-}
-
-.footer .news-letter form input[type="submit"]:hover {
-    background: #130f40;
-}
-
 .footer .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 1.5rem;
 }
-
 .footer .box-container .box h3 {
     font-size: 2.2rem;
     color: #130f40;
     padding: 1rem 0;
 }
-
 .footer .box-container .box p {
     font-size: 1.4rem;
     color: #666;
