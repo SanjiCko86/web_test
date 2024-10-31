@@ -1,6 +1,13 @@
 <template>
     <div class="footer">
-
+        <div class="news-letter">
+                <h3>Receive event notifications</h3>
+                <form onsubmit="event.preventDefault();">
+                    <input type="email" name="useremailreceiveinfo" placeholder="enter your email"
+                        id="useremailreceiveinfo">
+                    <input type="submit" value="subscribe">
+                </form>
+        </div>
         <div class="box-container">
 
             <div class="box">
@@ -27,13 +34,13 @@
 
             <div class="box">
                 <h3>extra links</h3>
-                <div>
+                <div v-if="user">
                     <router-link @click="scrollToTop()" to="/cart"> <i class="fas fa-arrow-right"></i> my order
                     </router-link>
                     <router-link @click="scrollToTop()" to="/myorder"> <i class="fas fa-arrow-right"></i> my orders
                     </router-link>
                 </div>
-                <div>
+                <div v-else>
                     <router-link @click="scrollToTop()" to="/login"> <i class="fas fa-arrow-right"></i> login
                     </router-link>
                     <router-link @click="scrollToTop()" to="/register"> <i class="fas fa-arrow-right"></i> register
@@ -64,7 +71,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
+
+    name: 'FooterComponent',
+
+    computed: {
+        ...mapState(['user'])
+    },
 
     methods: {
         scrollToTop() {
@@ -80,6 +94,48 @@ export default {
     background: #f7f7f7;
     padding: 2rem 9%;
 }
+.footer .news-letter {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer .news-letter h3 {
+    font-size: 2.5rem;
+    color: #130f40;
+    padding-bottom: 1rem;
+}
+
+.footer .news-letter form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    max-width: 70rem;
+
+    display: flex;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.footer .news-letter form input[type="email"] {
+    height: 100%;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #130f40;
+    text-transform: none;
+}
+
+.footer .news-letter form input[type="submit"] {
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #27ae60;
+    cursor: pointer;
+}
+
+.footer .news-letter form input[type="submit"]:hover {
+    background: #130f40;
+}
+
 .footer .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
